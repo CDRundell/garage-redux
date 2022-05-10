@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { setVehicles } from '../actions';
+import { Link } from 'react-router-dom'
 
 class VehicleList extends Component {
   componentWillMount() {
@@ -14,9 +15,10 @@ class VehicleList extends Component {
       <div>
         {vehicles.map((item) => {
           return (
-            <div>
-              <p><strong>Owner:</strong> {item.owner} <strong>Car Brand:</strong> {item.brand}</p>
-            </div>
+            <li key={item.id}>
+              {/* <p><strong>Owner:</strong> {item.owner} <strong>Car Brand:</strong> {item.brand}</p> */}
+              <Link to={`/vehicles/${item.id}`}>{item.plate}</Link>
+            </li>
           );
         })}
       </div>
