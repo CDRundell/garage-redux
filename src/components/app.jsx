@@ -1,10 +1,15 @@
 import React from 'react';
-import VehicleList from '../containers/vehicle_list';
+import { Link } from 'react-router-dom';
+
+import VehicleIndex from '../containers/vehicle_index';
 
 const App = (props) => {
   return (
     <div className="app">
-      <VehicleList channelFromParams={props.match.params.vehicles} />
+      <VehicleIndex channelFromParams={props.match.params.vehicles} />
+      <Link className="btn btn-primary btn-cta" to="/vehicles/new">
+        Add new car
+      </Link>
     </div>
   );
 };
